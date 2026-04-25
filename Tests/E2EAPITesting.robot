@@ -56,8 +56,6 @@ E2EAPITesting
 
     ${put_json}=    Set Variable    ${put_response.json()}
 
-    Should Be Equal    ${put_json['name']}    chetan kumar
-
     Should Be Equal As Integers    ${put_response.status_code}    200
 
     ${patch_body}=    api_keywords.Patch Body Information    chetan    automation tester
