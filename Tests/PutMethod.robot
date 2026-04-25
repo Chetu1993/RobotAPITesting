@@ -29,5 +29,5 @@ PutMethodTest
     Should Be Equal As Integers    ${response.status_code}    200
     Log To Console    ${json}
 
-    Should Be Equal    ${json['name']}    chetan
+    Should Be Equal    ${json['name']}    Chetan
     Should Be Equal    ${json['city']}    Bangalore
