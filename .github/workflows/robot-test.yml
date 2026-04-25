@@ -23,7 +23,7 @@ jobs:
 
       - name: run robot tests
         run: |
-          robot -d results Tests/
+          robot -d results -v ENV:qa Tests/
 
       - name: upload robot report
         uses: actions/upload-artifact@v4
