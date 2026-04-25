@@ -25,7 +25,7 @@ E2EAPITesting
 
     ${body}=    api_keywords.Post Body Information    ${name}    ${title}    30    1
     ${data_driven_response}=    api_keywords.Post Method    headers=${headers}    json=${body}
-    Should Be Equal As Integers    ${data_driven_response.status_code}    201
+    api_keywords.Validate Status    ${data_driven_response.status_code}    201
     END
 
 
@@ -42,11 +42,11 @@ E2EAPITesting
 
     Log To Console    ${json}
 
-    Should Be Equal As Integers    ${response.status_code}    201
+    api_keywords.Validate Status    ${response.status_code}    201
 
     ${get_response}=    api_keywords.Get Method    headers=${headers}
 
-    Should Be Equal as Integers    ${get_response.status_code}    200
+    api_keywords.Validate Status    ${get_response.status_code}    200
 
     ${put_body}=    api_keywords.Put Body Information    chetan kumar    quality analyst
 
@@ -54,20 +54,20 @@ E2EAPITesting
 
     ${put_json}=    Set Variable    ${put_response.json()}
 
-    Should Be Equal As Integers    ${put_response.status_code}    200
+    api_keywords.Validate Status    ${put_response.status_code}    200
 
     ${patch_body}=    api_keywords.Patch Body Information    chetan    automation tester
 
     ${patch_response}=    api_keywords.Patch Method    headers=${headers}    json=${patch_body}
 
-    Should Be Equal As Integers    ${patch_response.status_code}    200
+    api_keywords.Validate Status    ${patch_response.status_code}    200
 
     ${delete_response}=    api_keywords.Delete Method    headers=${headers}
 
-    Should Be Equal As Integers    ${delete_response.status_code}    200
+    api_keywords.Validate Status    ${delete_response.status_code}    200
 
     ${negative_testing_get_response}=    api_keywords.Negative Testing Get Method   headers=${headers}    expected_status=any
-    Should Be Equal As Integers    ${negative_testing_get_response.status_code}    404
+    api_keywords.Validate Status    ${negative_testing_get_response.status_code}    404
 
 Post Method Using Data-Driven Test
 
@@ -81,7 +81,7 @@ Post Method Using Data-Driven Test
         ...    30
         ...    1
         ${res}=    POST    ${base_url}/posts    headers=${headers}    json=${body}
-        Should Be Equal As Integers    ${res.status_code}    201
+        api_keywords.Validate Status    ${res.status_code}    201
     END
 
 

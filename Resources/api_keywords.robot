@@ -69,3 +69,7 @@ Negative Testing Get Method
     [Arguments]    ${headers}    ${expected_status}
     ${response}=    Get On Session    mysession    /posts/${negative_test_id}    ${headers}    ${expected_status}
     RETURN    ${response}
+
+Validate Status
+    [Arguments]    ${response.status_code}    ${status_code}
+    Should Be Equal As Integers    ${response.status_code}    ${status_code}
