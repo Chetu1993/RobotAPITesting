@@ -77,7 +77,7 @@ Post Method Using Data-Driven Test
 
     ${headers}=    api_keywords.API Headers Information
 
-    ${data}=    Load Test Data    ../Data/testdata.json
+    ${data}=    Load Test Data    ${EXECDIR}/Data/testdata.json
     FOR    ${item}    IN    @{data}
         ${body}=    Create Post Body
         ...    ${item['name']}
