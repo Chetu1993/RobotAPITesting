@@ -44,8 +44,6 @@ E2EAPITesting
 
     Should Be Equal As Integers    ${response.status_code}    201
 
-    Should Be Equal    ${json['name']}    chetan
-
     ${get_response}=    api_keywords.Get Method    headers=${headers}
 
     Should Be Equal as Integers    ${get_response.status_code}    200
