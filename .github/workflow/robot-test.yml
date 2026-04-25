@@ -1,0 +1,32 @@
+name:
+  on:
+    push:
+      branches: [main]
+    pull-request:
+
+jobs:
+  tests:
+    runs-on: windows-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version '3.11'
+
+      - name: install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: run robot tests
+        run: |
+          robot -d results Tests/
+
+      - name: upload robot report
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-report
+          path: results/
