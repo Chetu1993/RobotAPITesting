@@ -4,7 +4,7 @@ A robust API automation framework built using **Robot Framework** and **Requests
 
 ---
 
-## 📌 Features
+## Features
 
 * REST API Testing using Robot Framework
 * Reusable keywords (modular design)
@@ -16,7 +16,7 @@ A robust API automation framework built using **Robot Framework** and **Requests
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 RobotAPITesting/
